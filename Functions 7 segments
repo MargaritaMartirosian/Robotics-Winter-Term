@@ -1,0 +1,134 @@
+/*This code is used to demonstrate the number 0 to 9 on a seven segments. 
+Using for loop, Array and functions. Each For loop is for a specific number 
+the For loop is in a function for a specific number that we call after in the void loop().
+By using Array you have the advantage of choosing any pin without having a specific order
+By using Functions you have the advantage of calling any number and adding delay when needed (without order). 
+Main theme of this program is the use of Fuctions and the 7 segments. 
+*/
+int a = 8; // pin a of the  7 segment is connected to pin 1 on Arduino Uno 
+int b = 7; // pin b of the  7 segment is connected to pin 2 on Arduino Uno 
+int c = 6; // pin c of the  7 segment is connected to pin 3 on Arduino Uno 
+int d = 5; // pin d of the  7 segment is connected to pin 4 on Arduino Uno 
+int e = 4; // pin e of the  7 segment is connected to pin 5 on Arduino Uno 
+int f = 3; // pin f of the  7 segment is connected to pin 6 on Arduino Uno 
+int g = 2; // pin g of the  7 segment is connected to pin 7 on Arduino Uno 
+
+// array that holds pins 
+// each pin has a position
+int pins[]= {8,7,6,5,4,3,2}; //initialising separate values( pins that are used)
+// array that hold the state of each light
+int zero[]= {1,1,1,1,1,1,0};// 0
+// array that hold the state of each light
+int one[]= {0,1,1,0,0,0,0};// 1
+// array that hold the state of each light
+int two[]= {1,1,0,1,1,0,1};// 2
+// array that hold the state of each light
+int three[]= {1,1,1,1,0,0,1};// 3
+// array that hold the state of each light
+int four[]={0,1,1,0,0,1,1};// 4
+// array that hold the state of each light
+int five[]={1,0,1,1,0,1,1};// 5
+// array that hold the state of each light
+int six[]={1,0,1,1,1,1,1}; // 6
+// array that hold the state of each light
+int seven[]={1,1,1,0,0,0,0};// 7
+// array that hold the state of each light
+int eight[]={1,1,1,1,1,1,1};// 8
+// array that hold the state of each light
+int nine[]={1,1,1,0,0,1,1};// 9
+
+
+void setup() {
+  // put your setup code here, to run once:
+  for(int i =0 ;i<8;i++){//(initialization section , condition, Increment)
+    pinMode(pins[i],OUTPUT); // define i as an OUPUT
+// use pinMode(pins[i],OUTPUT)to get the possibility of choosing any
+// pins if needed without order
+    
+}
+}
+//-----------this is where we decribe and make functions-------------
+   void Zero() {// function for number zero 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],zero[j]);// display zero
+   }
+}
+   void One() {// function for number one 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],one[j]); // display one 
+   }
+
+}
+   void Two() {// function for number two
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],two[j]); // display two
+   }
+
+}
+   void Three() {// function for number three
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],three[j]); // display three
+   }
+
+}
+   void Four() {// function for number four
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],four[j]); // display four
+   }
+
+}
+   void Five() {// function for number five
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],five[j]); // display five 
+   }
+ 
+}
+   void Six() {// function for number six
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],six[j]); // display six 
+   }
+
+}
+   void Seven() {// function for number seven
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],seven[j]); // display seven
+   }
+
+}
+   void Eight() {// function for number eight
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],eight[j]); // display eight
+   }
+ 
+}
+   void Nine() {// function for number nine
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],nine[j]); // display nine 
+   }
+
+}
+//------------------this is were we call functions-----------------------
+
+     void loop() { // put your code here to tun in a loop
+       
+       Zero();     // calling function Zero
+       delay(1000);// delay for one second 
+       One();     // calling function One
+       delay(1000);// delay for one second 
+       Two();     // calling function Two
+       delay(1000);// delay for one second 
+       Three();     // calling function Three
+       delay(1000);// delay for one second 
+       Four();     // calling function Four   
+       delay(1000);// delay for one second 
+       Five();     // calling function Five
+       delay(1000);// delay for one second 
+       Six();     // calling function Six
+       delay(1000);// delay for one second 
+       Seven();     // calling function Seven 
+       delay(1000);// delay for one second 
+       Eight();     // calling function Eight
+       delay(1000);// delay for one second 
+       Nine();     // calling function Nine
+       delay(1000);// delay for one second 
+     }
