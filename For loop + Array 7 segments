@@ -1,0 +1,104 @@
+/*This code is used to demonstrate the number 0 to 9 on a seven segments. 
+Using for loop and Array. 
+By using Array you have the advantage of choosing any pin without having a specific order
+*/
+int a = 8; // pin a of the  7 segment is connected to pin 1 on Arduino Uno 
+int b = 7; // pin b of the  7 segment is connected to pin 2 on Arduino Uno 
+int c = 6; // pin c of the  7 segment is connected to pin 3 on Arduino Uno 
+int d = 5; // pin d of the  7 segment is connected to pin 4 on Arduino Uno 
+int e = 4; // pin e of the  7 segment is connected to pin 5 on Arduino Uno 
+int f = 3; // pin f of the  7 segment is connected to pin 6 on Arduino Uno 
+int g = 2; // pin g of the  7 segment is connected to pin 7 on Arduino Uno 
+
+// array that holds pins 
+// each pin has a position
+int pins[]= {8,7,6,5,4,3,2}; //initialising separate values( pins that are used)
+// array that hold the state of each light
+int zero[]= {1,1,1,1,1,1,0};// 0
+// array that hold the state of each light
+int one[]= {0,1,1,0,0,0,0};// 1
+// array that hold the state of each light
+int two[]= {1,1,0,1,1,0,1};// 2
+// array that hold the state of each light
+int three[]= {1,1,1,1,0,0,1};// 3
+// array that hold the state of each light
+int four[]={0,1,1,0,0,1,1};// 4
+// array that hold the state of each light
+int five[]={1,0,1,1,0,1,1};// 5
+// array that hold the state of each light
+int six[]={1,0,1,1,1,1,1}; // 6
+// array that hold the state of each light
+int seven[]={1,1,1,0,0,0,0};// 7
+// array that hold the state of each light
+int eight[]={1,1,1,1,1,1,1};// 8
+// array that hold the state of each light
+int nine[]={1,1,1,0,0,1,1};// 9
+
+
+void setup() {
+  // put your setup code here, to run once:
+  for(int i =0 ;i<8;i++){//(initialization section , condition, Increment)
+    pinMode(pins[i],OUTPUT); // define i as an OUPUT
+// use pinMode(pins[i],OUTPUT)to get the possibility of choosing any
+// pins if needed without order
+    
+}
+}
+
+void loop() {// put your main code here, to run repeatedly:
+  
+   delay(1000); // delay for one second 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],zero[j]);// display zero
+
+
+}
+   delay(1000); // delay for one second 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],one[j]); // display one 
+
+
+}
+   delay(1000); // delay for one second 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],two[j]); // display two
+  
+
+}
+   delay(1000); // delay for one second 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],three[j]); // display three
+
+
+}
+   delay(1000); // delay for one second 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],four[j]); // display four
+
+}
+   delay(1000); // delay for one second 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],five[j]); // display five 
+ 
+}
+   delay(1000); // delay for one second 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],six[j]); // display six 
+
+}
+   delay(1000); // delay for one second 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],seven[j]); // display seven
+
+}
+   delay(1000); // delay for one second 
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],eight[j]); // display eight
+ 
+}
+   delay(1000); // delay for one second --
+   for(int j =0; j<7;j++){//(initialization section , condition, Increment)
+   digitalWrite (pins[j],nine[j]); // display nine 
+
+}
+}
