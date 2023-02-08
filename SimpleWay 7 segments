@@ -1,0 +1,128 @@
+/*This code is used to demonstrate the number 0 to 9 on a seven segments in the most simplest way  
+There is no array , no for loop and no functions. Using digitalWrite and PinMode. 
+The main theme of this program is the 7 segement. 
+*/
+
+int a = 8; // pin a of the  7 segment is connected to pin 1 on Arduino Uno 
+int b = 7; // pin b of the  7 segment is connected to pin 2 on Arduino Uno 
+int c = 6; // pin c of the  7 segment is connected to pin 3 on Arduino Uno 
+int d = 5; // pin d of the  7 segment is connected to pin 4 on Arduino Uno 
+int e = 4; // pin e of the  7 segment is connected to pin 5 on Arduino Uno 
+int f = 3; // pin f of the  7 segment is connected to pin 6 on Arduino Uno 
+int g = 2; // pin g of the  7 segment is connected to pin 7 on Arduino Uno 
+int h = 1; // pin h of the  7 segment is connected to pin 8 on Arduino Uno 
+void setup() {
+  // put your setup code here, to run once:
+pinMode(a, OUTPUT ); // configure pin as an OUTPUT 
+pinMode(b, OUTPUT ); // configure pin as an OUTPUT
+pinMode(c, OUTPUT ); // configure pin as an OUTPUT
+pinMode(d, OUTPUT ); // configure pin as an OUTPUT
+pinMode(e, OUTPUT ); // configure pin as an OUTPUT
+pinMode(f, OUTPUT ); // configure pin as an OUTPUT
+pinMode(g, OUTPUT ); // configure pin as an OUTPUT
+pinMode(h, OUTPUT ); // configure pin as an OUTPUT
+}
+
+void loop() {// put your main code here, to run repeatedly:
+  digitalWrite(a,HIGH);// pin is ON  // 0 
+  digitalWrite(b,HIGH);// pin is ON
+  digitalWrite(c,HIGH);// pin is ON
+  digitalWrite(d,HIGH);// pin is ON
+  digitalWrite(e,HIGH);// pin is ON
+  digitalWrite(f,HIGH);// pin is ON
+  digitalWrite(g,LOW); // pin is OFF
+  digitalWrite(h,HIGH); // pin is ON
+  delay(2000); // display 0 for two seconds 
+
+  digitalWrite(a,LOW); // pin is OFF // 1
+  digitalWrite(b,HIGH);// pin is ON
+  digitalWrite(c,HIGH);// pin is ON
+  digitalWrite(d,LOW); // pin is OFF
+  digitalWrite(e,LOW); // pin is OFF
+  digitalWrite(f,LOW); // pin is OFF
+  digitalWrite(g,LOW); // pin is OFF
+  digitalWrite(h,HIGH);
+  delay(2000); // display 1 for two seconds 
+
+  digitalWrite(a,HIGH);// pin is ON // 2 
+  digitalWrite(b,HIGH);// pin is ON
+  digitalWrite(c,LOW); // pin is OFF
+  digitalWrite(d,HIGH);// pin is ON
+  digitalWrite(e,HIGH);// pin is ON
+  digitalWrite(f,LOW); // pin is OFF
+  digitalWrite(g,HIGH);// pin is ON
+  digitalWrite(h,HIGH);// pin is ON
+  delay(2000); // display 2 for two seconds 
+
+  digitalWrite(a,HIGH);// pin is ON // 3 
+  digitalWrite(b,HIGH);// pin is ON
+  digitalWrite(c,HIGH);// pin is ON
+  digitalWrite(d,HIGH);// pin is ON
+  digitalWrite(e,LOW); // pin is OFF
+  digitalWrite(f,LOW); // pin is OFF
+  digitalWrite(g,HIGH);// pin is ON
+  digitalWrite(h,HIGH);// pin is ON
+  delay(2000); // display 3 for two seconds 
+
+  digitalWrite(a,LOW); // pin is OFF // 4 
+  digitalWrite(b,HIGH);// pin is ON
+  digitalWrite(c,HIGH);// pin is ON
+  digitalWrite(d,LOW); // pin is OFF
+  digitalWrite(e,LOW); // pin is OFF
+  digitalWrite(f,HIGH);// pin is ON
+  digitalWrite(g,HIGH);// pin is ON
+  digitalWrite(h,HIGH);// pin is ON
+  delay(2000); // display 4 for two seconds 
+
+  digitalWrite(a,HIGH); // pin is ON// 5
+  digitalWrite(b,LOW); // pin is OFF
+  digitalWrite(c,HIGH);// pin is ON
+  digitalWrite(d,HIGH);// pin is ON
+  digitalWrite(e,LOW); // pin is OFF
+  digitalWrite(f,HIGH);// pin is ON
+  digitalWrite(g,HIGH);// pin is ON
+  digitalWrite(h,HIGH);// pin is ON
+  delay(2000);// display 5 for two seconds 
+
+  digitalWrite(a,HIGH);// pin is ON // 6 
+  digitalWrite(b,LOW); // pin is OFF
+  digitalWrite(c,HIGH);// pin is ON
+  digitalWrite(d,HIGH);// pin is ON
+  digitalWrite(e,HIGH);// pin is ON
+  digitalWrite(f,HIGH);// pin is ON
+  digitalWrite(g,HIGH);// pin is ON
+  digitalWrite(h,HIGH);// pin is ON
+  delay(2000);// display 6 for two seconds 
+
+  digitalWrite(a,HIGH);// pin is ON // 7
+  digitalWrite(b,HIGH);// pin is ON
+  digitalWrite(c,HIGH);// pin is ON
+  digitalWrite(d,LOW); // pin is OFF
+  digitalWrite(e,LOW); // pin is OFF
+  digitalWrite(f,LOW); // pin is OFF
+  digitalWrite(g,LOW); // pin is OFF
+  digitalWrite(h,HIGH);// pin is ON
+  delay(2000);// display 7 for two seconds 
+
+  digitalWrite(a,HIGH);// pin is ON // 8 
+  digitalWrite(b,HIGH);// pin is ON
+  digitalWrite(c,HIGH);// pin is ON
+  digitalWrite(d,HIGH);// pin is ON
+  digitalWrite(e,HIGH);// pin is ON
+  digitalWrite(f,HIGH);// pin is ON
+  digitalWrite(g,HIGH);// pin is ON
+  digitalWrite(h,HIGH);// pin is ON
+  delay(2000);// display 8 for two seconds 
+
+  digitalWrite(a,HIGH); // pin is ON // 9
+  digitalWrite(b,HIGH);// pin is ON
+  digitalWrite(c,HIGH);// pin is ON
+  digitalWrite(d,HIGH);// pin is ON
+  digitalWrite(e,LOW); // pin is OFF
+  digitalWrite(f,HIGH);// pin is ON
+  digitalWrite(g,HIGH);// pin is ON
+  digitalWrite(h,HIGH);// pin is ON
+  delay(2000);// display 9 for two seconds 
+  
+
+}
