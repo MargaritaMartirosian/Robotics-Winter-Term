@@ -1,0 +1,51 @@
+class Led {
+  
+  private:// only ascces within the class 
+  
+  int _pin;
+  
+  public :
+  
+  Led(){}; // constructor 
+  Led(int pin ){      // the constructor i will really use 
+  _pin = pin; 
+    
+  }
+  void init(){// YOU CAN GIVE ANY NAME YOU WANT 
+    pinMode(_pin, OUTPUT); // pin mode to output 
+  }
+  void on(){
+    digitalWrite(_pin, 1);
+  }
+  
+  void off() {
+    digitalWrite(_pin, 0);
+  }
+  
+};
+  //************************ class finish
+
+Led Red(13);              // create object 
+
+
+// **************************************
+Led Green (11);
+ 
+void setup ()
+{
+  Red.init();
+  Green.init();
+}
+
+void loop()
+  
+{
+  
+  Red.on();
+  Green.off();
+  
+  delay(1000);
+  Green.on();
+  Red.off();
+  delay (10000);
+}
