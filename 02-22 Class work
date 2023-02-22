@@ -1,0 +1,92 @@
+// ---------------------------------MAIN--------------------------
+/*class Led{
+  
+  private:
+  int pin; // encapsulation 
+  
+  plublic:
+  Led(){} // default constructor 
+  Led(int pin){ // calling the constructor 
+    this->pin = pin; 
+    
+  }
+    
+    void init()
+      pinMode(pin, OUTPUT);
+  
+}
+
+void on(){
+  digitalWrite(pin,1);
+  
+  void off(){
+    
+    digitalWrite(pin,0);
+  }
+  
+};
+*/
+#include<Led.h>
+
+Led no(13); 
+
+void setup() {
+  
+  no.init();
+}
+
+void loop()
+  
+  no.on();
+delay(1000);
+no.off();
+delay(200);
+}
+  
+// ---------------------------------------HEADER--------------------------------
+#ifndef LED_H
+ #define LED_H
+
+ #include<Arduino.h>; 
+ 
+class Led{
+
+private:
+int _pin;
+
+public:
+Led(){}        // The default constructor 
+Led( int pin); // The constructor 
+
+void init();   // to intialize the pin as output
+void on();     // to turn the Led on
+void off();    // to turn the Led off 
+
+  
+};
+
+ #endif
+ // ------------------------------------CODE----------------------------
+ #include "Led.h" // quoations mean its in the same file in the same place 
+                 // angle braket take from arduino libraries 
+
+
+Led:: Led(int pin){// whenever you work in C++ file , you have to relate to the header file  
+                   // :: from the Led class for defining  , : is for methods for using 
+  _pin = pin;
+}
+
+void Led::init(){
+  pinMode (pin, OUTPUT);
+
+ 
+}
+
+void Led::on(){
+  digitalWrite(_pin,1);
+  
+}
+void Led::off(){
+  digitalWrite(_pin,0);
+  
+}
