@@ -1,0 +1,91 @@
+/*This code is used to display number 0 to 9 on a one digit seven segment. 
+ Using array, for loop and switch case. 
+ The main theme of this program is using the switch case methode. 
+ */
+ 
+int a = 8; // pin a of the 7 segment is connected to pin 1 on Arduino Uno 
+int b = 7; // pin b of the 7 segment is connected to pin 2 on Arduino Uno 
+int c = 6; // pin c of the 7 segment is connected to pin 3 on Arduino Uno 
+int d = 5; // pin d of the 7 segment is connected to pin 4 on Arduino Uno 
+int e = 4; // pin e of the 7 segment is connected to pin 5 on Arduino Uno 
+int f = 3; // pin f of the 7 segment is connected to pin 6 on Arduino Uno 
+int g = 2; // pin g of the 7 segment is connected to pin 7 on Arduino Uno 
+
+// array that holds pins 
+// each pin has a position
+int pins[] = {8, 7, 6, 5, 4, 3, 2}; // initializing separate values(pins that are used)
+
+// array that hold the state of each light
+int zero[] = {1, 1, 1, 1, 1, 1, 0}; // 0
+// array that hold the state of each light
+int one[] = {0, 1, 1, 0, 0, 0, 0}; // 1
+// array that hold the state of each light
+int two[] = {1, 1, 0, 1, 1, 0, 1}; // 2
+// array that hold the state of each light
+int three[] = {1, 1, 1, 1, 0, 0, 1}; // 3
+// array that hold the state of each light
+int four[] = {0, 1, 1, 0, 0, 1, 1}; // 4
+// array that hold the state of each light
+int five[] = {1, 0, 1, 1, 0, 1, 1}; // 5
+// array that hold the state of each light
+int six[] = {1, 0, 1, 1, 1, 1, 1}; // 6
+// array that hold the state of each light
+int seven[] = {1, 1, 1, 0, 0, 0, 0}; // 7
+// array that hold the state of each light
+int eight[] = {1, 1, 1, 1, 1, 1, 1}; // 8
+// array that hold the state of each light
+int nine[] = {1, 1, 1, 0, 0, 1, 1}; // 9
+
+void setup() {
+  // put your setup code here, to run once:
+  for (int i = 0; i < 8; i++) {
+    pinMode(pins[i], OUTPUT); // define i as an OUTPUT
+  }
+}
+
+void displayDigit(int digit[]) {
+//The displayDigit function takes an array digit as input that contains the state of each segment.
+// sets the corresponding pins to HIGH or LOW using 
+  for (int j = 0; j < 7; j++) {
+    digitalWrite(pins[j], digit[j]);
+  }
+}
+
+void loop() {
+  for (int i = 0; i < 10; i++) {
+    switch (i) {
+      // using switch case method to call out functions to display number 0 to 9
+      case 0:
+        displayDigit(zero);//0
+        break;
+      case 1:
+        displayDigit(one);//1
+        break;
+      case 2:
+        displayDigit(two);//2
+        break;
+      case 3:
+        displayDigit(three);//3
+        break;
+      case 4:
+        displayDigit(four);//4
+        break;
+      case 5:
+        displayDigit(five);//5
+        break;
+      case 6:
+        displayDigit(six);//6
+        break;
+      case 7:
+        displayDigit(seven);//7
+        break;
+      case 8:
+        displayDigit(eight);//8
+        break;
+      case 9:
+        displayDigit(nine);//9
+        break;
+    }
+    delay(1000); //  delay of 1000 milliseconds between digits 
+  }
+}
