@@ -1,0 +1,36 @@
+/* HEADER 
+ * Constructor that has 4 parameters 
+ * Has 3 public methods Setup , Loop and constructor 
+ */
+
+#ifndef BUTTON_LED_H
+#define BUTTON_LED_H
+
+#include <Arduino.h>
+
+class ButtonLed { // Defines a class named ButtonLed
+  public:
+    ButtonLed(int buttonPin, int* ledPins, int numLeds, int debounceDelay);
+              //constructor takes :button pin number, an array of LED pin numbers,
+              //the number of LEDs, the debounce delay time
+    void setup(); // initialize 
+    void loop();  // check state of PB and plays with LEDS. 
+    
+  private: // Private member variables
+    int _buttonPin;     //  pushbutton pin
+    int* _ledPins;      // array of LED pins (pointer) 
+                        // contains the pin numbers of the four LEDs 
+                        
+    int _numLeds;       // number of LEDs that are used in this program 
+    
+    int _debounceDelay; // the debounce time; increase if the output flickers
+                        // amount of time to wait before reading the state of the PB again 
+                        // avoiding noise 
+    int _buttonState;           // the current reading (PB pressed or not )
+    int _lastButtonState = LOW; // the previous reading 
+    int _currentLed = 0;        // active LED ( tracks which led is truned ON and which is not ) 
+    unsigned long _lastDebounceTime = 0;
+                                // initialized to zero , used to store the time when the PB was last pressed 
+};
+
+#endif
