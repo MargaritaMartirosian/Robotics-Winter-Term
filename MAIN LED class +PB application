@@ -1,0 +1,33 @@
+/* Main 
+ *  ---------UNDERSTANDING THE CODE --------
+ *  1. Include Arduino library and the header file for class definition. 
+ *  2. Declare variables for the PB and Leds, number of LED and debounce time.
+ *  3. Create instance of ButtonLed class (buttonPin, ledPin, numLeds, debounceDelay). 
+ *     - makes a copy of the class so we can use the functions of it. 
+ *  4. Setup used to initialize. (Setup = function). 
+ *  5. Loop used for calling the class , it checks the state of PB. 
+ */
+
+#include <Arduino.h>
+#include "button_led.h" // include header file 
+
+const int buttonPin = 2;               // the number of the pushbutton pin
+const int ledPin[] = {13, 12, 11, 10}; // array of LED pins
+                                       // contains the pin numbers of the four LEDs 
+
+const int numLeds = 4;        // number of LEDs that are used in this program 
+const int debounceDelay = 50; // amount of time to wait before reading the state of the PB again 
+                              // avoiding noise 
+
+ButtonLed buttonLed(buttonPin, ledPin, numLeds, debounceDelay);
+//creates an instance of the ButtonLed class named buttonLed with the specified pin numbers and debounce delay
+//creating an object that is an instance of that class.
+void setup() { // code runs once 
+  buttonLed.setup();
+  // function created to initialize the pins and state of leds in the setup 
+}
+
+void loop() { // code runs in a loop
+  buttonLed.loop();
+  // function created to check the state of button with the debounce and cycle of the leds 
+}
