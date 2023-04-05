@@ -1,0 +1,73 @@
+/* ------------UNDERSTANDING THE CODE ----------------
+ *  1. Initialization of an instance of the class. 
+ * 2. Setup sets LEDS as Outputs and the PB as an Input. 
+ * 3. Loop function , reading the current state of PB and store into "reading".
+ * 4. IF the current reading of PB is different from the last , store the current time into lastDebounceTime.
+ * 5. Check difference between Current and last debounce is > debounce delay . IF it is then read current state. 
+ * 6. IF current state of PB is different from last state stored in _buttonState update it.
+ * 7. If the new state of PB is pressed turn OFF the current LED and turn ON the next one (next one = pin is HIGH).
+ * 8. Store the reading of PB into _lastButtonState for next...
+ * 9. REPEAT
+ */
+
+#include "button_led.h"
+
+ButtonLed::ButtonLed(int buttonPin, int* ledPins, int numLeds, int debounceDelay) {
+  _buttonPin = buttonPin; // the current reading (PB pressed or not )
+  
+  _ledPins = ledPins;     // array of LED pins
+                          // contains the pin numbers of the four LEDs 
+                          
+  _numLeds = numLeds;     // number of LEDs that are used in this program 
+  _debounceDelay = debounceDelay;// the debounce time; increase if the output flickers
+                                 // amount of time to wait before reading the state of the PB again 
+                                 // avoiding noise 
+}
+
+void ButtonLed::setup() { // member function contains information that run once 
+  for (int i = 0; i < _numLeds; i++) { // goes through the array 
+    pinMode(_ledPins[i], OUTPUT);      // initialize the LED pins as outputs
+  }
+  pinMode(_buttonPin, INPUT);          // initialize the PB pin as an input
+}
+
+void ButtonLed::loop() {// member function contains information that run in a loop
+  // reads the current state of PB , stores it in reading .
+  int reading = digitalRead(_buttonPin);
+
+  if (reading != _lastButtonState) {
+  // if the current reading of PB is different from the last one (previous). 
+    _lastDebounceTime = millis();// stores time when the PB was last pressed.  
+  }
+
+  if ((millis() - _lastDebounceTime) > _debounceDelay) {
+    // check if the difference between current time (millis function) 
+    // and last debounce time is > than the debounceDelay
+    // If it is > , we can read the current state because more than 50 ms has passed 
+ 
+    if (reading != _buttonState) {
+    // checks if the current reading of the button is different from the previous state stored in buttonState
+      _buttonState = reading;// updates buttonState with new reading 
+      
+      if (_buttonState == HIGH) {// if the new update shows that the led is HIGH that means the PB has been pressed
+        
+        digitalWrite(_ledPins[_currentLed], LOW);// turns off the led that is currently on 
+
+        _currentLed = (_currentLed + 1) % _numLeds;
+        // currentLed: stores index of currently active LED,turns off current led and turn the next one 
+        // = : assigns the currentLed to (currentLed + 1) % numLeds;
+        // currentled + 1 : moves to the next led 
+        // % goes bak to the beggining 
+        // % in range of the 4 leds 
+        // numLeds stores the numner of leds , co op with the %
+
+
+        digitalWrite(_ledPins[_currentLed], HIGH);
+        // turns on the new led selected by making it HIGH
+      }
+    }
+  }
+// lastButtonState: stores previous reading of the PB 
+// = : compare with the current reading 
+  _lastButtonState = reading;
+}
